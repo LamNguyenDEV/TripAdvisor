@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<!--
+	TripAdvise Create A Post page
+
+-->
+<html>
+    <head>
+        <title>TripAdvise - Create a Post</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="images/sun.jpg">
+         <!-- PageHeader -->
+		<div class="pageheader">
+			<a href="index.html" class="logo">TripAdvise</a>
+			<div class="pageheader-right">
+			  <a href="index.html">Home</a>
+			  <a href="login.html">Login</a>
+			  <a href="register.html">Register</a>
+			</div>
+		  </div>
+    </head>
+    <style>
+        .rating {
+            float:left;
+            width:300px;
+        }
+        .rating span { float:right; position:relative; }
+        .rating span input {
+            position:absolute;
+            top:0px;
+            left:0px;
+            opacity:0;
+        }
+        .rating span label {
+            display:inline-block;
+            height:50px;
+            color:#FFF;
+            background:#ccc;
+            line-height:30px;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+        }
+        .rating span:hover ~ span label,
+        .rating span:hover label,
+        .rating span.checked label,
+        .rating span.checked ~ span label {
+            background:#F90;
+            color:#FFF;
+        }
+    </style>
+
+    <body>
+        <script>
+            $(document).ready(function(){
+                $(".rating input:radio").attr("checked", false);
+                $('.rating input').click(function () {
+                    $(".rating span").removeClass('checked');
+                    $(this).parent().addClass('checked');
+                });
+                $('input:radio').change(
+                    function(){
+                        var userRating = this.value;
+                        alert(userRating);
+                    }); 
+                });
+        </script>
+      <div id ="loginbg">
+        <img src="images/bgpattern.png" alt="">
+      </div>
+        <form action="action_page.php" method="post">
+            <div class="loginimgcontainer">
+              <img src="images/sun.jpg" alt="logo" class="loginavatar">
+            </div>
+          
+            <div class="logincontainer">
+              <label for="posttitle"><b>Post Title:</b></label>
+              <input type="text" placeholder="Enter Post Title" name="posttitle" required>
+              <br>
+              <label for="postlocation"><b>Location of Post:</b></label>
+              <input type="text" placeholder="Enter Location of Post" name="postlocation" required>
+              <br>
+              <label for="postsummary"><b>Post Summary:</b></label>
+              <textarea rows=5 name="postsummary" placeholder="Enter Summary"></textarea required>
+              <br>
+              <label for="postrating"><b>Location Rating:</b></label>
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+              <div class="rating">
+                  <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
+                  <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>
+                  <span><input type="radio" name="rating" id="str3" value="3"><label for="str3"></label></span>
+                  <span><input type="radio" name="rating" id="str2" value="2"><label for="str2"></label></span>
+                  <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+                </div>
+          
+              <button type="submit" class="loginbutton">Create Post</button>
+            </div>
+          </form>
+    </body>
+</html>
+Copied
